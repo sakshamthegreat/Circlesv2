@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="#000000"
+    tools:context=".FullscreenActivity"
+    >
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <TextView android:id="@+id/fullscreen_content" android:layout_width="0dp"
+        android:layout_height="0dp" android:keepScreenOn="true" android:textColor="#000000"
+        android:textStyle="bold" android:textSize="50sp" android:gravity="center"
+        android:text="@string/dummy_content"
+        android:autoText="false"
+        android:backgroundTint="#000000" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Single Player"
+        android:id="@+id/button"
+        android:layout_gravity="center"
+        android:onClick="sendMessage"
+        android:layout_below="@+id/fullscreen_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="187dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Circles"
+        android:id="@+id/textView"
+        android:layout_below="@+id/fullscreen_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp"
+        android:textSize="96dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wireless"
+        android:id="@+id/button2"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+</RelativeLayout>
