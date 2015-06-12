@@ -17,16 +17,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Created by Saksham on 5/10/2015.
+ * Created by Saksham on 6/12/2015.
  */
-public class Game extends Activity implements SensorEventListener {
-
+public class EasyGame extends Activity implements SensorEventListener{
     private SensorManager mSensorManager;
     private Sensor accelerometer;
     private long lastUpdate;
@@ -154,7 +152,7 @@ public class Game extends Activity implements SensorEventListener {
             c.drawRect(0, 0, this.getWidth(), this.getHeight(), p);
             super.onDraw(c);
             if (count == 1) {
-                for (int i = 0; i < 15; i++) {
+                for (int i = 0; i < 10; i++) {
                     listOfCircles.add(setCircles());
                 }
                 count++;
@@ -199,7 +197,7 @@ public class Game extends Activity implements SensorEventListener {
                     Log.i("", String.valueOf(mc.getRadius()));
                 }
                 if (mc.isDestroyed()) {
-                    Intent intent = new Intent(Game.this, com.example.saksham.circles.Intermediate.class);
+                    Intent intent = new Intent(EasyGame.this, com.example.saksham.circles.Intermediate.class);
                     intent.putExtra("score", mc.getScore());
                     startActivity(intent);
                     return;
@@ -227,6 +225,3 @@ public class Game extends Activity implements SensorEventListener {
 
     }
 }
-
-
-

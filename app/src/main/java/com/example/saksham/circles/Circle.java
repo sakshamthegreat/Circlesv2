@@ -18,7 +18,6 @@ public class Circle {
     protected int speedX = 5;
     protected int speedY = 4;
     protected boolean destroyed;
-    int score;
     public Circle(int posx, int posy, int r, int dx, int dy){
         xpos = posx;
         ypos = posy;
@@ -26,7 +25,6 @@ public class Circle {
         speedX= dx;
         speedY = dy;
         code = Color.parseColor(MyColor.getCode());
-        score = 1;
       }
     public int getX(){
         return xpos;
@@ -81,10 +79,10 @@ public class Circle {
     }
     public void testIncreaseSize(Circle c){
         if(this.getRadius()>=c.getRadius()){
-            this.incrementSize((int)(c.getRadius()/(4 +score)));
+            this.incrementSize((int)(c.getRadius()/(4)));
             c.destroy();
         }else {
-            c.incrementSize((int)(c.getRadius()/(4 +score)));
+            c.incrementSize((int)(c.getRadius()/(4)));
             this.destroy();
         }
     }
@@ -98,9 +96,6 @@ public class Circle {
     @Override
     public String toString(){
     return "center" + xpos + "," + ypos + "radius " + radius;
-    }
-    public void incrementScore(){
-        score++;
     }
 
 }

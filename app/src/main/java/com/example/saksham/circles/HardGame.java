@@ -17,16 +17,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Created by Saksham on 5/10/2015.
+ * Created by Saksham on 6/12/2015.
  */
-public class Game extends Activity implements SensorEventListener {
-
+public class HardGame extends Activity implements SensorEventListener{
     private SensorManager mSensorManager;
     private Sensor accelerometer;
     private long lastUpdate;
@@ -122,18 +120,18 @@ public class Game extends Activity implements SensorEventListener {
             int x = r.nextInt(4) + 1;
             if (x == 1) {
                 c = new Circle(10, new Random().nextInt(getHeight()),
-                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(5) + 1, new Random().nextInt(5) + 1);
+                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(6) + 1, new Random().nextInt(6) + 1);
             } else if (x == 2) {
                 c = new Circle(this.getHeight() - 10, new Random().nextInt(getHeight()),
-                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(5) + 1, new Random().nextInt(5) + 1);
+                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(6) + 1, new Random().nextInt(6) + 1);
 
             } else if (x == 3) {
                 c = new Circle(new Random().nextInt(getWidth()), 10,
-                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(5) + 1, new Random().nextInt(5) + 1);
+                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(6) + 1, new Random().nextInt(6) + 1);
 
             } else {
                 c = new Circle(new Random().nextInt(getWidth()), this.getHeight() - 10,
-                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(5) + 1, new Random().nextInt(5) + 1);
+                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(6) + 1, new Random().nextInt(6) + 1);
             }
             if(c.hasCollision(mc)){
                 return setCircles();
@@ -166,17 +164,17 @@ public class Game extends Activity implements SensorEventListener {
             int yi;
             if (x < 0) {
                 ex = 0;
-            } else if (x * 3 > this.getWidth()) {
+            } else if (x * 2 > this.getWidth()) {
                 ex = this.getWidth() - mc.getRadius() -1;
             } else {
-                ex = x * 3;
+                ex = x * 2;
             }
             if (y < 0) {
                 yi = 0;
-            } else if (y * 3 > this.getHeight()) {
+            } else if (y * 2 > this.getHeight()) {
                 yi = this.getHeight() - mc.getRadius() -1;
             } else {
-                yi = y * 3;
+                yi = y * 2;
             }
 
             p.setColor(mc.code);
@@ -199,7 +197,7 @@ public class Game extends Activity implements SensorEventListener {
                     Log.i("", String.valueOf(mc.getRadius()));
                 }
                 if (mc.isDestroyed()) {
-                    Intent intent = new Intent(Game.this, com.example.saksham.circles.Intermediate.class);
+                    Intent intent = new Intent(HardGame.this, com.example.saksham.circles.Intermediate.class);
                     intent.putExtra("score", mc.getScore());
                     startActivity(intent);
                     return;
@@ -227,6 +225,3 @@ public class Game extends Activity implements SensorEventListener {
 
     }
 }
-
-
-

@@ -4,12 +4,18 @@ import com.example.saksham.circles.util.SystemUiHider;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -46,37 +52,76 @@ public class FullscreenActivity extends Activity {
      * The instance of the {@link SystemUiHider} for this activity.
      */
     private SystemUiHider mSystemUiHider;
-
+    Spinner s;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         getActionBar().hide();
-
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_fullscreen);
         Button orderButton = (Button)findViewById(R.id.button);
-
+        s = (Spinner) findViewById(R.id.spinner);
+        List<String> list = new ArrayList<String>();
+        list.add("easy");
+        list.add("medium");
+        list.add("hard");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s.setAdapter(dataAdapter);
         orderButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FullscreenActivity.this, Game.class);
-                startActivity(intent);
+                if (String.valueOf(s.getSelectedItem()) == "easy") {
+                    Intent intent = new Intent(FullscreenActivity.this, EasyGame.class);
+                    startActivity(intent);
+                    return;
+                } else if (String.valueOf(s.getSelectedItem()) == "medium") {
+                    Intent intent = new Intent(FullscreenActivity.this, Game.class);
+                    startActivity(intent);
+                    return;
+                } else if (String.valueOf(s.getSelectedItem()) == "hard") {
+                    Intent intent = new Intent(FullscreenActivity.this, HardGame.class);
+                    startActivity(intent);
+                    return;
+                }
             }
-
-        });
+                });
         Button orderButton2 = (Button)findViewById(R.id.button2);
 
         orderButton2.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FullscreenActivity.this, Bluetooth.class);
+                Intent intent = new Intent(FullscreenActivity.this, WirelessServer.class);
                 startActivity(intent);
             }
 
         });
+        Button orderButton3 = (Button)findViewById(R.id.button5);
 
+        orderButton3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FullscreenActivity.this, WirelessClient.class);
+                startActivity(intent);
+            }
+
+        });
+        Button orderButton4 = (Button)findViewById(R.id.button6);
+
+        orderButton4.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FullscreenActivity.this, MultiplayerGame.class);
+                startActivity(intent);
+            }
+
+        });
         //final View controlsView = findViewById(R.id.fullscreen_content_controls);
         final View contentView = findViewById(R.id.fullscreen_content);
 

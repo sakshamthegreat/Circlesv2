@@ -14,7 +14,7 @@ public class MyCircle extends Circle{
     public MyCircle(int posx, int posy, int r, int dx, int dy) {
         super(posx, posy, r, dx, dy);
         setColor();
-        score = 1;
+        score = 0;
     }
     @Override
     public void draw (Canvas c, View v){
@@ -53,7 +53,6 @@ public class MyCircle extends Circle{
             c.destroy();
         }else {
             c.incrementSize((this.getRadius()/(4+score)));
-            c.score ++;
             this.destroy();
         }
     }
