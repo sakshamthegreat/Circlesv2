@@ -111,17 +111,17 @@ public class FullscreenActivity extends Activity {
             }
 
         });
-        Button orderButton4 = (Button)findViewById(R.id.button6);
-
-        orderButton4.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FullscreenActivity.this, MultiplayerGame.class);
-                startActivity(intent);
-            }
-
-        });
+//        Button orderButton4 = (Button)findViewById(R.id.button6);
+//
+//        orderButton4.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(FullscreenActivity.this, MultiplayerGame.class);
+//                startActivity(intent);
+//            }
+//
+//        });
         //final View controlsView = findViewById(R.id.fullscreen_content_controls);
         final View contentView = findViewById(R.id.fullscreen_content);
 
