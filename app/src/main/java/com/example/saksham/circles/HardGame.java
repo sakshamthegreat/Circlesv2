@@ -120,18 +120,18 @@ public class HardGame extends Activity implements SensorEventListener{
             int x = r.nextInt(4) + 1;
             if (x == 1) {
                 c = new Circle(10, new Random().nextInt(getHeight()),
-                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(6) + 1, new Random().nextInt(6) + 1);
+                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(7) + 1, new Random().nextInt(7) + 1);
             } else if (x == 2) {
                 c = new Circle(this.getHeight() - 10, new Random().nextInt(getHeight()),
-                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(6) + 1, new Random().nextInt(6) + 1);
+                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(7) + 1, new Random().nextInt(7) + 1);
 
             } else if (x == 3) {
                 c = new Circle(new Random().nextInt(getWidth()), 10,
-                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(6) + 1, new Random().nextInt(6) + 1);
+                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(7) + 1, new Random().nextInt(7) + 1);
 
             } else {
                 c = new Circle(new Random().nextInt(getWidth()), this.getHeight() - 10,
-                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(6) + 1, new Random().nextInt(6) + 1);
+                        mc.getRadius() - 10 + new Random().nextInt(20), new Random().nextInt(7) + 1, new Random().nextInt(7) + 1);
             }
             if(c.hasCollision(mc)){
                 return setCircles();
@@ -152,7 +152,7 @@ public class HardGame extends Activity implements SensorEventListener{
             c.drawRect(0, 0, this.getWidth(), this.getHeight(), p);
             super.onDraw(c);
             if (count == 1) {
-                for (int i = 0; i < 15; i++) {
+                for (int i = 0; i < 25; i++) {
                     listOfCircles.add(setCircles());
                 }
                 count++;
@@ -199,6 +199,7 @@ public class HardGame extends Activity implements SensorEventListener{
                 if (mc.isDestroyed()) {
                     Intent intent = new Intent(HardGame.this, com.example.saksham.circles.Intermediate.class);
                     intent.putExtra("score", mc.getScore());
+                    intent.putExtra("game", 3);
                     startActivity(intent);
                     return;
                 }

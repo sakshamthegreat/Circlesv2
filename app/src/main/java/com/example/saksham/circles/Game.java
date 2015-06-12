@@ -201,6 +201,7 @@ public class Game extends Activity implements SensorEventListener {
                 if (mc.isDestroyed()) {
                     Intent intent = new Intent(Game.this, com.example.saksham.circles.Intermediate.class);
                     intent.putExtra("score", mc.getScore());
+                    intent.putExtra("game",2);
                     startActivity(intent);
                     return;
                 }

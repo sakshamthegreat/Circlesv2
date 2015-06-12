@@ -16,6 +16,7 @@ import android.widget.TextView;
  */
 public class Intermediate extends Activity{
     TextView t;
+    int game;
     public void onCreate(Bundle savedInstanceState) {
         MyColor.addColors();
         super.onCreate(savedInstanceState);
@@ -41,10 +42,20 @@ public class Intermediate extends Activity{
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intermediate.this, Game.class);
-                startActivity(intent);
+                if (game == 1) {
+                    Intent intent = new Intent(Intermediate.this, EasyGame.class);
+                    startActivity(intent);
+                    return;
+                } else if (game == 2){
+                    Intent intent = new Intent(Intermediate.this, Game.class);
+                    startActivity(intent);
+                    return;
+                }else if (game == 2) {
+                    Intent intent = new Intent(Intermediate.this, HardGame.class);
+                    startActivity(intent);
+                    return;
+                }
             }
-
         });
     }
     public void onStart(){
@@ -52,5 +63,6 @@ public class Intermediate extends Activity{
         Intent i = getIntent();
         int score = i.getIntExtra("score", 5);
         t.setText(String.valueOf(score));
+        game = getIntent().getIntExtra("game", 0);
     }
 }
