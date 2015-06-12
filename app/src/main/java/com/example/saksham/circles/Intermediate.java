@@ -50,7 +50,7 @@ public class Intermediate extends Activity{
                     Intent intent = new Intent(Intermediate.this, Game.class);
                     startActivity(intent);
                     return;
-                }else if (game == 2) {
+                }else if (game == 3) {
                     Intent intent = new Intent(Intermediate.this, HardGame.class);
                     startActivity(intent);
                     return;
